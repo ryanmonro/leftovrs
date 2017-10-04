@@ -1,0 +1,16 @@
+<h1>Items:</h1>
+
+<% @items.each do |item| %>
+
+<p>distance <%= item.title %> <%= item.formatted_price %> (<%= item.user.name %>)
+  <% if logged_in? %>
+    <% if item.user != current_user %>
+      <a href="/items/<%= item.id %>/buy">Buy</a>
+    <% else %>
+      <a href="/items/<%= item.id %>/edit">Edit</a>
+    <% end %>    
+  <% end %>
+
+</p>
+
+<% end %>

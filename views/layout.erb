@@ -6,6 +6,26 @@
   <link rel='stylesheet' href='/stylesheets/main.css'>
 </head>
 <body>
+  <header>
+    <h1>
+      Leftovrs
+    </h1>
+    <nav>
+      <a href="/items/new">Post new item</a>
+      <a href="/items">Items near me</a>
+      <a href="/me">My Items</a>
+    </nav>
+    <% if logged_in? %>
+      Logged in as <a href="/me"><%= current_user.name %></a>
+      <form action="/session" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>Logout</button>
+      </form>
+    <% else %>
+      <a href="/login">Log In</a>
+      <a href="/signup">Sign Up</a>
+    <% end %>
+  </header>
 
   <%= yield %>
 

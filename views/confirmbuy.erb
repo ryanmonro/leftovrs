@@ -1,0 +1,5 @@
+Are you sure you want to buy <%= @item.title %> from <%= @item.user.name %>?
+<form action="/items/<%= @item.id %>/buy" method="post">
+  <button>Confirm</button>
+</form>
+<a href="/">Cancel</a>

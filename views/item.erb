@@ -1,10 +1,9 @@
-<h2><%= @item.title %></h2>
-<h3>Posted by <%= @item.user.name %> <%= @item.age %> ago</h3>
+<h2><%= @item.title %> <span class="price"><%= @item.formatted_price %></span></h2>
 <% if @item.sold %>
-<h3>SOLD to <%=Purchase.where(item_id: @item.id).user.name%></h3>
+<h3>SOLD to <%=Purchase.find_by(item_id: @item.id).user.name%></h3>
 <% end %>
-<p>Price: <%= @item.formatted_price %></p>
-<p>Description: <%= @item.description %></p>
+<p class="description">"<%= @item.description %>"</p>
 <p>Condition: <%= @item.condition %></p>
 <p>Location: <span class="location"><%= @item.latitude %>,<%= @item.longitude %></span></p>
 
+<h3>Posted by <%= @item.user.name %> <%= @item.age %> ago </h3>

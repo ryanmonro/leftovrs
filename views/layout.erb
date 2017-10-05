@@ -10,9 +10,11 @@
   <header>
     <h1>Leftovrs</h1>
     <nav>
+      <% if logged_in? %>
       <a href="/items/new">Post new item</a>
       <a href="/items">Items near me</a>
       <a href="/me">My Items</a>
+      <% end %>
     </nav>
     <section id="user-info">
     <% if logged_in? %>

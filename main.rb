@@ -1,7 +1,7 @@
 
 require 'sinatra'
 require 'active_record'
-# require 'sinatra/reloader'
+require 'sinatra/reloader'
 require_relative 'db_config'
 require_relative 'models/user'
 require_relative 'models/item'
@@ -21,13 +21,14 @@ end
 
 # chronological order
 get '/' do
-  @items = Item.where(sold: false)
+
+  @items = Item.where(sold: false).order(created_at: :desc)
   erb :items
 end
 
 # closest to me
 get '/items' do
-  @items = Item.where(sold: false)
+  @items = Item.where(sold: false).order(created_at: :desc)
   erb :items
 end
 

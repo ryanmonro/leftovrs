@@ -1,27 +1,40 @@
+<section class="user-form">
+<h1>New Item:</h1>
 <form action="/items" method="post">
-  <label for="title">Title:</label>
-  <input type="text" name="title" id="title">
-  <br>
-  <label for="price">Price:</label>
-  <input type="text" name="price" id="price">
-  <br>
-  <label for="condition">Condition:</label>
-  <input type="text" name="condition" id="condition">
-  <br>
-  <label for="description">Description:</label>
-  <textarea name="description" id="description" cols="30" rows="10"></textarea>
-  <br>
-  <!-- <label for="life_span">Time Limit:</label> -->
-  <input type="hidden" name="life_span" id="life_span">
-  <!-- <br> -->
-  <label for="latitude">Latitude:</label>
-  <input type="text" name="latitude" id="latitude">
-  <br>
-  <label for="longitude">Longitude:</label>
-  <input type="text" name="longitude" id="longitude">
-  <br>
+  <p>
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title">
+  </p>
+  <p>
+    <label for="price">Price:</label>
+    <input type="text" name="price" id="price">
+  </p>
+  <p>
+    <label for="condition">Condition:</label>
+    <input type="text" name="condition" id="condition">
+  </p>
+  <p>
+    <label for="description">Description:</label>
+  </p>
+  <p>
+    <textarea name="description" id="description" cols="30" rows="4"></textarea>
+  </p>
+  <p>
+    <!-- <label for="life_span">Time Limit:</label> -->
+    <input type="hidden" name="life_span" id="life_span">
+    <!-- <br> -->
+  </p>
+  <p>
+    <label for="latitude">Latitude:</label>
+    <input type="text" name="latitude" id="latitude">
+  </p>
+  <p>
+    <label for="longitude">Longitude:</label>
+    <input type="text" name="longitude" id="longitude">
+  </p>  
   <button>Post</button>
 </form>
+</section>
 <script>
   var newPost = true;
 </script>

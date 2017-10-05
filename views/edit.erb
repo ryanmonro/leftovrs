@@ -12,9 +12,9 @@
   <label for="description">Description:</label>
   <textarea name="description" id="description" cols="30" rows="10"><%= @item.description %></textarea>
   <br>
-  <label for="life_span">Time Limit:</label>
-  <input type="text" name="life_span" id="life_span" value="<%= @item.life_span %>">
-  <br>
+  <!-- <label for="life_span">Time Limit:</label> -->
+  <input type="hidden" name="life_span" id="life_span" value="<%= @item.life_span %>">
+  <!-- <br> -->
   <label for="latitude">Latitude:</label>
   <input type="text" name="latitude" id="latitude" value="<%= @item.latitude %>">
   <br>

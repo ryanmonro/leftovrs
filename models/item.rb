@@ -8,6 +8,8 @@ class Item < ActiveRecord::Base
     self.condition = params[:condition]
     self.price = params[:price]
     self.life_span = params[:life_span]
+    self.latitude = params[:latitude]
+    self.longitude = params[:longitude]
     self.sold = false
     self.save
     self
@@ -21,6 +23,23 @@ class Item < ActiveRecord::Base
     else
       sprintf("$%.2f", price)
     end
+  end
+
+  def age
+    time_difference = Time.now - self.created_at
+    seconds = time_difference.to_i
+    if seconds < 60
+      return "#{seconds} seconds"
+    end
+    minutes = seconds / 60
+    if minutes < 60
+      return "#{minutes} minutes"   
+    end
+    hours = minutes / 60
+    if hours < 24
+      return "#{hours} hours"
+    end
+    return "#{hours / 24} days"
   end
 
 end

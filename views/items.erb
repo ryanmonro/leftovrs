@@ -2,12 +2,16 @@
 
 <% @items.each do |item| %>
 
-<p>distance <%= item.title %> <%= item.formatted_price %> (<%= item.user.name %>)
+<p><span class="location"><%= item.latitude %>,<%=  item.longitude %></span> <a href="/items/<%= item.id %>"><%= item.title %></a> <%= item.formatted_price %> (<%= item.user.name %>) <%= item.age %> ago
   <% if logged_in? %>
     <% if item.user != current_user %>
       <a href="/items/<%= item.id %>/buy">Buy</a>
     <% else %>
       <a href="/items/<%= item.id %>/edit">Edit</a>
+      <form action="/items/<%= item.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>Delete</button>
+      </form>
     <% end %>    
   <% end %>
 

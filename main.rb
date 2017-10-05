@@ -39,19 +39,27 @@ post '/items' do
   redirect '/items'
 end
 
-
 get '/items/new' do
   redirect '/' unless logged_in?
   erb :new
 end
 
 get '/items/:id' do
-  'to do'
+  @item = Item.find(params[:id])
+  erb :item
+end
+
+delete '/items/:id' do
+  item = Item.find(params[:id])
+  if item.user.id == current_user.id
+    item.destroy
+  end
+  redirect '/'
 end
 
 get '/items/:id/edit' do
-  redirect '/' unless logged_in?
   @item = Item.find(params[:id])
+  redirect '/' unless logged_in? && @item.user.id == current_user.id
   erb :edit
 end
 

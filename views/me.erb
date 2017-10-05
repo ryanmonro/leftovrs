@@ -5,8 +5,7 @@
 <% if @selling.count > 0 %>
 <h2>Selling:</h2>
 <% @selling.each do |item| %>
-  <!-- show alert for waiting pickup -->
-  <p><%= item.title %> <%= item.formatted_price %></p>
+  <p><a href="/items/<%= item.id %>"><%= item.title %></a> <%= item.formatted_price %> posted <%= item.age %> ago</p>
 <% end %>
 <% end %>
 
@@ -14,9 +13,9 @@
 <h2>Sold:</h2>
 <% @sold.each do |item| %>
   <p>
-  <%= item.title %> <%= item.formatted_price %>
-  <% if item.collected == false %>
   <% purchase = Purchase.find_by(item: item.id) %>
+  <a href="/items/<%= item.id %>"><%= item.title %></a> <%= item.formatted_price %> sold <%= purchase.age %> ago
+  <% if item.collected == false %>
   <%= purchase.user.name %> agreed to buy your item. Contact them on <%= purchase.user.phone_number %>. Click <a href="/items/<%=item.id%>/collect">here</a> when the item has been collected.
   <% end %>
   </p>
@@ -26,7 +25,7 @@
 <% if @bought.count > 0 %>
 <h2>Bought:</h2>
 <% @bought.each do |purchase| %>
-  <p><%= purchase.item.title %> <%= purchase.item.formatted_price %>
+  <p><a href="/items/<%= purchase.item.id %>"><%= purchase.item.title %></a> <%= purchase.item.formatted_price %> bought <%= purchase.age %> ago
   <% if purchase.item.collected == false %>
   You agreed to buy this item. <%= purchase.item.user.name %> will contact you to arrange pickup.<br>
   <% end %>

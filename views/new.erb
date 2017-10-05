@@ -11,8 +11,17 @@
   <label for="description">Description:</label>
   <textarea name="description" id="description" cols="30" rows="10"></textarea>
   <br>
-  <label for="life_span">Time Limit:</label>
-  <input type="text" name="life_span" id="life_span">
+  <!-- <label for="life_span">Time Limit:</label> -->
+  <input type="hidden" name="life_span" id="life_span">
+  <!-- <br> -->
+  <label for="latitude">Latitude:</label>
+  <input type="text" name="latitude" id="latitude">
+  <br>
+  <label for="longitude">Longitude:</label>
+  <input type="text" name="longitude" id="longitude">
   <br>
   <button>Post</button>
 </form>
+<script>
+  var newPost = true;
+</script>

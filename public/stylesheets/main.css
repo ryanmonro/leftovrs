@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto;
+  margin: 0;
+}
+
+header {
+  background: yellowgreen;
+  height: 100px;
+}
+
+header nav {
+  text-align: center;
+}
+
+#user-info {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px;
+  background: white;
+  border-radius: 5px; 
+  margin: 30px 20px 10px 0;
+}
+
+form {
+  display: inline;
+}
+
+header h1 {
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 4em;
+  margin: 0;
+  color: white;
+  text-align: center;
+}
+
+main {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.location {
+  display: none;
+}
+
+.location-show {
+  display: inline;
+}

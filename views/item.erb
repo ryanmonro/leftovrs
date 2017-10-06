@@ -6,7 +6,7 @@
 <p class="description">"<%= @item.description %>"</p>
 <p>Condition: <%= @item.condition %></p>
 <p>Location: <span class="location"><%= @item.latitude %>,<%= @item.longitude %></span></p>
-
+<div id="map"></div>
 <h3>Posted by <%= @item.user.name %> <%= @item.age %> ago </h3>
 <form action="/items/<%= @item.id %>" method="post">
   <br>
@@ -19,3 +19,20 @@
 <% end %>    
 </form>
 </section>
+
+<script>
+  var pin = {lat: <%= @item.latitude %>, lng: <%= @item.longitude %>};
+  function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: pin
+  });
+  var marker = new google.maps.Marker({
+    position: pin,
+    map: map
+  });
+}
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARaNvhtNzV1w4FivxQm6WHvydAy26zYPI&callback=initMap">
+</script>

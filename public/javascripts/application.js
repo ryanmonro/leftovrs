@@ -1,3 +1,5 @@
+
+
 var deviceLat = '-37.818624299999996';
 var deviceLong = '144.9593399';
 

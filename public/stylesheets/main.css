@@ -102,6 +102,16 @@ a.buy:hover {
   border-radius: 20px;
 }
 
+details {
+  margin: 1em 0;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+
 .description {
   font-size: 1.2em;
   padding-left: 20px;

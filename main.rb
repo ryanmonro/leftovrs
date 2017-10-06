@@ -98,7 +98,11 @@ put '/items/:id' do
   item.title = params[:title]
   item.description = params[:description]
   item.condition = params[:condition]
-  item.price = params[:price]
+  price = params[:price]
+  if price.start_with? "$"
+    price.slice!(0)
+  end
+  item.price = price
   item.life_span = params[:life_span]
   item.latitude = params[:latitude]
   item.longitude = params[:longitude]

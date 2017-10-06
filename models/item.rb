@@ -6,7 +6,11 @@ class Item < ActiveRecord::Base
     self.title = params[:title]
     self.description = params[:description]
     self.condition = params[:condition]
-    self.price = params[:price]
+    price = params[:price]
+    if price.start_with? "$"
+      price.slice!(0)
+    end
+    self.price = price
     self.life_span = params[:life_span]
     self.latitude = params[:latitude]
     self.longitude = params[:longitude]

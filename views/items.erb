@@ -2,14 +2,20 @@
 
 <% @items.each do |item| %>
 <div class="item-in-list">
-<!-- <form action="/items/<%= item.id %>" method="post"> -->
-  <input type="hidden" name="_method" value="delete">
-  <p><span class="location"><%= item.latitude %>,<%=  item.longitude %></span> <a href="/items/<%= item.id %>"><%= item.title %></a> <span class="price"><%= item.formatted_price %></span> (<%= item.user.name %>) <%= item.age %> ago
+  <details>
+  <summary><a href="/items/<%= item.id %>"><%= item.title %></a> 
+    <span class="price"><%= item.formatted_price %></span> 
+    <span class="location"><%= item.latitude %>,<%=  item.longitude %></span>
+  </summary>
+    <p>Posted by (<%= item.user.name %>) <%= item.age %> ago</p>
     
     <% if logged_in? %>
       <% if item.user == current_user %>
-        <!-- <a href="/items/<%= item.id %>/edit">Edit</a>
-        <button>Delete</button> -->
+        <form action="/items/<%= item.id %>" method="post">
+          <a href="/items/<%= item.id %>/edit" class="button">Edit</a>
+          <input type="hidden" name="_method" value="delete">
+          <button class="button">Delete</button>
+        </form> 
       <% else %>
         <a href="/items/<%= item.id %>/buy" class="buy">Buy</a>
       <% end %>
@@ -17,8 +23,8 @@
       <a href="/items/<%= item.id %>/buy" class="buy">Buy</a>
     <% end %>
 
+  </details>
 
   </p>
-<!-- </form>  -->
 </div>
 <% end %>

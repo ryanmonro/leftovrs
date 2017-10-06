@@ -11,6 +11,7 @@ class Item < ActiveRecord::Base
     self.latitude = params[:latitude]
     self.longitude = params[:longitude]
     self.sold = false
+    self.collected = false
     self.save
     self
   end
@@ -39,7 +40,8 @@ class Item < ActiveRecord::Base
     if hours < 24
       return "#{hours} hours"
     end
-    return "#{hours / 24} days"
+    days = (hours / 24.0).round(0)
+    return "#{days} days"
   end
 
 end

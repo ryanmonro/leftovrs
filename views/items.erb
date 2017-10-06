@@ -1,20 +1,24 @@
-<h1>Available Items:</h1>
+<h1 class="items-heading">Available Items:</h1>
 
 <% @items.each do |item| %>
-
-<form action="/items/<%= item.id %>" method="post">
+<div class="item-in-list">
+<!-- <form action="/items/<%= item.id %>" method="post"> -->
   <input type="hidden" name="_method" value="delete">
   <p><span class="location"><%= item.latitude %>,<%=  item.longitude %></span> <a href="/items/<%= item.id %>"><%= item.title %></a> <span class="price"><%= item.formatted_price %></span> (<%= item.user.name %>) <%= item.age %> ago
+    
     <% if logged_in? %>
-      <% if item.user != current_user %>
-        <a href="/items/<%= item.id %>/buy">Buy</a>
+      <% if item.user == current_user %>
+        <!-- <a href="/items/<%= item.id %>/edit">Edit</a>
+        <button>Delete</button> -->
       <% else %>
-        <a href="/items/<%= item.id %>/edit">Edit</a>
-          <button>Delete</button>
-      <% end %>    
+        <a href="/items/<%= item.id %>/buy" class="buy">Buy</a>
+      <% end %>
+    <% else %>
+      <a href="/items/<%= item.id %>/buy" class="buy">Buy</a>
     <% end %>
 
-  </p>
-</form> 
 
+  </p>
+<!-- </form>  -->
+</div>
 <% end %>

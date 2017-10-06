@@ -1,7 +1,7 @@
 <section class="user-form">
 <p>Are you sure you want to buy <%= @item.title %> from <%= @item.user.name %>?</p>
 <form action="/items/<%= @item.id %>/buy" method="post">
-  <button>Confirm</button>
+  <button class="button">Confirm</button>
 </form>
-<a href="/">Cancel</a>
+<a href="/" class="button">Cancel</a>
 </section>

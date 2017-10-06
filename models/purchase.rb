@@ -16,6 +16,7 @@ class Purchase < ActiveRecord::Base
     if hours < 24
       return "#{hours} hours"
     end
-    return "#{hours / 24} days"
+    days = (hours / 24.0).round(0)
+    return "#{days} days"
   end
 end

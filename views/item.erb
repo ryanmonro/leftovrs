@@ -1,3 +1,4 @@
+<section class="item-box">
 <h2><%= @item.title %> <span class="price"><%= @item.formatted_price %></span></h2>
 <% if @item.sold %>
 <h3>SOLD to <%=Purchase.find_by(item_id: @item.id).user.name%></h3>
@@ -7,3 +8,14 @@
 <p>Location: <span class="location"><%= @item.latitude %>,<%= @item.longitude %></span></p>
 
 <h3>Posted by <%= @item.user.name %> <%= @item.age %> ago </h3>
+<form action="/items/<%= @item.id %>" method="post">
+  <br>
+<input type="hidden" name="_method" value="delete">
+<% if @item.user != current_user %>
+  <a href="/items/<%= @item.id %>/buy" class="button">Buy</a>
+<% else %>
+  <a href="/items/<%= @item.id %>/edit" class="button">Edit</a>
+  <button class="button">Delete</button>
+<% end %>    
+</form>
+</section>

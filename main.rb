@@ -1,7 +1,9 @@
 
 require 'sinatra'
 require 'active_record'
-# require 'sinatra/reloader'
+if ENV['RACK_ENV'] != 'production'
+  require 'sinatra/reloader'
+end
 require_relative 'db_config'
 require_relative 'models/user'
 require_relative 'models/item'
@@ -21,7 +23,6 @@ end
 
 # chronological order
 get '/' do
-
   @items = Item.where(sold: false).order(created_at: :desc)
   erb :items
 end
@@ -66,7 +67,7 @@ get '/items/:id/edit' do
 end
 
 get '/items/:id/buy' do
-  redirect '/' unless logged_in?
+  redirect '/login' unless logged_in?
   @item = Item.find(params[:id])
   erb:confirmbuy
 end

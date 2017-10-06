@@ -17,6 +17,41 @@ header nav {
   text-align: center;
 }
 
+header nav a {
+  color: white;
+  padding: 5px;
+}
+
+.button {
+  background-color: yellowgreen;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+a.buy {
+  text-transform: uppercase;
+  color: tomato;
+  border: 1px tomato solid;
+  padding: 0 4px;
+}
+
+a.buy:hover {
+  background: tomato;
+  color: white;
+}
+
 .user-form {
   width: 500px;
   margin: 50px auto;
@@ -33,10 +68,38 @@ header nav {
   position: absolute;
   top: 0px;
   right: 0px;
-  padding: 10px;
+  padding: 5px 10px;
   background: white;
   border-radius: 5px; 
-  margin: 30px 20px 10px 0;
+  margin: 5px;
+}
+
+#user-info a {
+  padding: 5px;
+}
+
+.item-box {
+  width: 500px;
+  margin: 50px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 40px;
+}
+
+.items-heading {
+  margin-left: 20px;
+}
+
+.item-box h2 {
+  margin-top: 0;
+}
+
+.item-in-list {
+  width: 100%;
+  margin: 10px auto;
+  background: white;
+  padding: 5px 20px;
+  border-radius: 20px;
 }
 
 .description {
@@ -64,6 +127,12 @@ header h1 {
   text-align: center;
 }
 
+header h1 a {
+  color: white;
+  text-decoration: none;
+
+}
+
 main {
   width: 500px;
   margin: 0 auto;
@@ -75,4 +144,8 @@ main {
 
 .location-show {
   display: inline;
+}
+
+td {
+  padding: 5px;
 }

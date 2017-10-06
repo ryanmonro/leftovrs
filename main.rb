@@ -137,10 +137,11 @@ post '/signup' do
   # form validation here, go back to signup with
   # message if there's a problem
   @user = User.new
-  @user.name = params[:name]
+  name = params[:name].downcase
+  @user.name = name
   @user.email = params[:email]
   @user.phone_number = params[:phone_number]
-  if User.find_by(name: params[:name])
+  if User.find_by(name: name)
     @message = "That username is already taken, please choose another."
     erb :signup
   else
@@ -152,7 +153,7 @@ post '/signup' do
 end
 
 post '/session' do
-  user = User.find_by(name: params[:username])
+  user = User.find_by(name: params[:username].downcase)
   if user && user.authenticate(params[:password])
     # authenticated
     session[:user_id] = user.id

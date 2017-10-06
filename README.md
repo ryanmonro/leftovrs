@@ -22,6 +22,9 @@ Australians throw out $8 billion worth of edible food every year. Often people f
 - Sorting items for sale by their distance from the user would have been nice, but I decided this was out of scope because it requires passing the user's location to the server first, and then querying the database. It would be a nice feature though.
 - Form validation. I didn't have time to implement ActiveRecord validation, and verified some of the form data manually as I realised how easy it was to break my app by entering the wrong data.
 
+## Unsolved Problems
+- Form validation needs to be more thorough. Currently usernames are case sensitive.
+
 ## Lessons Learned
 - I spent quite a lot of time in design for this project, and it was time well spent. Creating the wireframes of my site effectively forced me to make a lot of decisions early on that influenced the layout and data structure of the site. However, taking this further and including all of the user's paths through the site from sign up, log in, creating and editing items, etc. would have helped even more. The lesson learned is time spent in design without writing a line of code is time well-spent.
 - It would have been worth keeping in mind how achievable all my features were. I had some great ideas while making the wireframes but later in the process realised they were out of scope.

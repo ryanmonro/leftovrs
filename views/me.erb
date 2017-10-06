@@ -8,7 +8,7 @@
   <% @selling.each do |item| %>
     <div class="item-in-list">
       <p>
-        <a href="/items/<%= item.id %>"><%= item.title %></a> <%= item.formatted_price %> posted <%= item.age %> ago
+        <a href="/items/<%= item.id %>"><%= item.title %></a> <span class="price"><%= item.formatted_price %></span> posted <%= item.age %> ago
       </p>
     </div>
   <% end %>
@@ -20,7 +20,7 @@
   <div class="item-in-list">
     <p>
       <% purchase = Purchase.find_by(item: item.id) %>
-      <a href="/items/<%= item.id %>"><%= item.title %></a> <%= item.formatted_price %> sold <%= purchase.age %> ago
+      <a href="/items/<%= item.id %>"><%= item.title %></a> <span class="price"><%= item.formatted_price %></span> sold <%= purchase.age %> ago to <%= purchase.user.name %>
       <% if item.collected == false %>
         <p><%= purchase.user.name %> agreed to buy your item. Contact them on <%= purchase.user.phone_number %>. Click <a href="/items/<%=item.id%>/collect">here</a> when the item has been collected.</p>
       <% end %>
@@ -34,7 +34,7 @@
   <% @bought.each do |purchase| %>
     <div class="item-in-list">
       <p>
-        <a href="/items/<%= purchase.item.id %>"><%= purchase.item.title %></a> <%= purchase.item.formatted_price %> bought <%= purchase.age %> ago
+        <a href="/items/<%= purchase.item.id %>"><%= purchase.item.title %></a> <span class="price"><%= purchase.item.formatted_price %></span> bought <%= purchase.age %> ago from <%= purchase.item.user.name %>
         <% if purchase.item.collected == false %>
           <p>You agreed to buy this item. <%= purchase.item.user.name %> will contact you to arrange pickup.</p>
         <% end %>
